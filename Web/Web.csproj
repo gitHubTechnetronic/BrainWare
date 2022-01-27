@@ -136,7 +136,12 @@
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccessLibrary\DataAccessLibrary.csproj">
+      <Project>{ffd18079-3571-4ab2-a9fd-7f9af854a28c}</Project>
+      <Name>DataAccessLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -172,12 +177,21 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\API\OrderController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DisplayModels\BaseRepository.cs" />
+    <Compile Include="DisplayModels\CompanyOrders.cs" />
+    <Compile Include="DisplayModels\CompanyOrdersRepository.cs" />
+    <Compile Include="DisplayModels\ICompanyOrdersRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Infrastructure\Database.cs" />
+    <Compile Include="Infrastructure\DemoAuthorizeAttribute.cs" />
+    <Compile Include="Infrastructure\Factory.cs" />
+    <Compile Include="Infrastructure\IOrderService.cs" />
     <Compile Include="Infrastructure\OrderService.cs" />
-    <Compile Include="Models\Order.cs" />
+    <Compile Include="DisplayModels\Company.cs" />
+    <Compile Include="DisplayModels\Order.cs" />
+    <Compile Include="DisplayModels\OrderProduct.cs" />
+    <Compile Include="DisplayModels\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -233,7 +247,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

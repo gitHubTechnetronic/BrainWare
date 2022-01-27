@@ -38,3 +38,36 @@ Change the AttachDbFile name to the full path of the BrainWare.mdf file (located
 - Set the project Web, as the start up project
 - Press F5
 - Expected a browser is open with the result of the first order
+
+
+## Refactor Notes
+### MVC
+- Added data access layer
+- Added Stored Procedures
+- Added repository
+- Added Display Models
+- Added simple authorization token
+- Added code to Test
+- Several code changes…
+
+#### More refactoring to consider
+- Adding EF or Dapper
+- Adding an IOC container and more decoupling
+- Adding Login Features
+- Adding more Unit Test and creating separate test data
+- Adding details to the API Help pages
+- Adding Angular
+- Make sure the production build uses the min.js and .css files
+- Upgrading .net framework and use System.Text.Json
+- Separate the Service Layer from Web Project
+- Upgrade bootstrap and other Nuget packages
+- Change Display Models to the ViewModel with some redesign
+- Make sure we have explicitly type for readability
+- Several other code changes…
+	
+### Blazor Server
+- Added vscode project for a bonus example with minimal refactoring.  On cmdline “dotnet watch”
+
+
+
+

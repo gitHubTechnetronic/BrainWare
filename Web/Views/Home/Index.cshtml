@@ -1,42 +1,118 @@
-﻿<div class="jumbotron">
+﻿<div class="jumbotron">    
     <h1>BrainWare Orders</h1>
     <p class="lead">This is the BrainWare orders page! Welcome</p>
 </div>
 <div class="row">
-    <div class="col-md-12">
-        <h2>Your Orders</h2>
-        <div id="orders"></div>
+    <div id="companyOrdersAlert" class="alert alert-danger" role="alert" style="display:none;">        
     </div>
-  
+    <div id="companyOrders" class="col-md-12">
+        <h2>Your Orders for <label id="companyname"></label></h2>
+        <div id="orders"></div>
+
+        <div id="accordion">
+            <div class="panel panel-default template" style="display:none">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                            (template panel)
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        (template panel body)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>      
 </div>
+
 <script>
     $(document).ready(function () {
+        var url = $(location).attr('href'),
+        parts = url.split("/"),
+        last_part = parts[parts.length - 2];
+        
+        var company_id = 1;
+
+        var afterlastslash = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
+        
+        if (last_part.toLowerCase() === 'index') {
+            if (!isNaN(afterlastslash) && afterlastslash) {
+                company_id = parseInt(afterlastslash);
+            }
+        }
+                
         var $orders = $('#orders');
         $.ajax({
-            'url': '/api/order/1',
+            'url': '/api/order/' + company_id,            
             'type': 'GET',
+            headers: { "Authorization": "demo Token" },
+
             'success': function (data) {
-
+                
                 var $orderList = $('<ul/>');
-
+                
                 if (data) {
-                    $.each(data,
-                        function(i) {
-                            var $li = $('<li/>').text(this.Description + ' (Total: $' + this.OrderTotal + ')')
+
+                    console.log(data);
+
+                    var json_data = JSON.parse(data);
+                                        
+                    if (json_data.Company.isinDatabase) {
+                        $('#companyname').append(json_data.Company.CompanyName);
+
+                    }
+                    else {
+                        $('#companyOrders').hide();
+                        $('#companyOrdersAlert').html('[Error: ' + json_data.Company.ErrorMessage + ']').show();
+
+                    }
+
+                    var formatter = new Intl.NumberFormat('en-US', {
+                        style: 'currency',
+                        currency: 'USD',
+                        maximumFractionDigits: 2,
+                    });
+                                                                               
+                    var $template = $(".template");
+                                        
+                    $.each(json_data.Orders,
+                        function (i) {
+
+                            var $newPanel = $template.clone();
+                            
+                            $newPanel.find(".collapse").removeClass("in");
+                            $newPanel.find(".accordion-toggle").attr("href", "#" + (i))
+                                     .text(this.Description + ' (Total: ' + formatter.format(this.OrderTotal) + ')');
+
+                            var $li = $('<li/>').text(this.Description + ' (Total: ' + formatter.format(this.OrderTotal) + ')')
                                 .appendTo($orderList);
 
                             var $productList = $('<ul/>');
 
-                            $.each(this.OrderProducts, function(j) {
-                                var $li2 = $('<li/>').text(this.Product.Name + ' ('+ this.Quantity +' @@ $' + this.Price + '/ea)')
+                            $.each(this.OrderProducts, function (j) {
+                                var $li2 = $('<li/>').text(this.Product.Name + ' (' + this.Quantity + ' @@ ' + formatter.format(this.Price) + '/ea)')
                                     .appendTo($productList);
                             });
 
-                            $productList.appendTo($li);
-                        });
+                            $newPanel.find(".panel-body").html($productList);
 
-                    $orders.append($orderList);
+                            $newPanel.find(".panel-collapse").attr("id", i).addClass("collapse").removeClass("in");
+                            $("#accordion").append($newPanel.fadeIn());
+
+                        });
+                         
+                    $('#accordion .collapse').collapse('show');
+
                 }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(jqXHR);
+                console.log(textStatus);
+                console.log(errorThrown);
             }
         });
     });

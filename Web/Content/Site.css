@@ -1,11 +1,11 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 10px;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-top: 15px;
+    padding-top: 10px;
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -15,4 +15,28 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+.jumbotron {
+    margin-bottom: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+panel {
+    margin-bottom: 10px;
+}
+
+.panel-body {
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    overflow: hidden;
 }

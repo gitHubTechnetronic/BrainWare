@@ -1,24 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
+﻿using System.Web.Http;
 
 namespace Web.Controllers
 {
     using System.Web.Mvc;
     using Infrastructure;
-    using Models;
+    using Newtonsoft.Json;
 
+    [DemoAuthorize]
     public class OrderController : ApiController
-    {
+    {               
+        
         [HttpGet]
-        public IEnumerable<Order> GetOrders(int id = 1)
-        {
-            var data = new OrderService();
+        public string GetCompanyOrders(int id)
+        {           
+            IOrderService data = Factory.CreateOrderService();
 
-            return data.GetOrdersForCompany(id);
+            //Consider upgrading to System.Text.Json when upgrading .net framework            
+            return JsonConvert.SerializeObject(data.GetCompanyOrders(Factory.CreateCompanyOrdersRepository(), id));
         }
+
     }
 }

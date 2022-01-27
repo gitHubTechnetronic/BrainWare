@@ -8,6 +8,7 @@
     @Scripts.Render("~/bundles/modernizr") 
     @Scripts.Render("~/bundles/jquery")
     <script type = 'text/javascript' >
+
         var appInsights=window.appInsights||function(config)
         {
             function r(config){ t[config] = function(){ var i = arguments; t.queue.push(function(){ t[config].apply(t, i)})} }
@@ -15,21 +16,21 @@
         }({
             instrumentationKey:'44438517-e81d-4eef-936e-7c8a8db0d270'
         });
-        
+
         window.appInsights=appInsights;
         appInsights.trackPageView();
+    
     </script>
 </head>
 <body>
     <div class="container body-content">
         @RenderBody()
-        <hr />
+        
         <footer>
             <p>&copy; @DateTime.Now.Year - BrainWare, Inc</p>
         </footer>
     </div>
-
-
+    
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
