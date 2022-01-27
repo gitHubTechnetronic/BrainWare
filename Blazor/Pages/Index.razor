@@ -1,0 +1,67 @@
+﻿@page "/"
+@page "/{id:int}"
+
+@using System.Net.Http.Json
+
+@using Web.Infrastructure
+
+@using DisplayModels
+
+@inject OrderService OrderService
+@inject HttpClient Http
+@inject IConfiguration _config
+
+
+<PageTitle>Index</PageTitle>
+
+<div class="jumbotron">
+    <h1>BrainWare Orders</h1>
+    <p class="lead">This is the BrainWare orders page! Welcome</p>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <h2>Your Orders</h2>
+        <div id="orders"></div>
+    </div>
+  
+              @foreach (var forecast in lsts.Orders)
+            {
+                <ul>
+                    <li>@forecast.Description (Total: $@forecast.OrderTotal)</li>
+                    <ul>
+
+                    @foreach (var orderProduct in forecast.OrderProducts)
+                    {
+                    <li>@orderProduct.Product.Name @orderProduct.Quantity $@orderProduct.Price /ea</li>
+                    }
+                    </ul>
+
+                </ul>
+            }
+
+
+</div>
+
+            <footer>
+                <p>&copy; @DateTime.Now.Year - BrainWare, Inc</p>
+            </footer>
+            
+@code {
+
+    private CompanyOrders lsts = new CompanyOrders();
+    //string ids = "0";
+    
+    [Parameter]
+    public int id { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+
+        var data = new OrderService(_config);
+        
+        if (id == 0) { id = 1;}
+
+        lsts = data.GetCompanyOrders(id);    
+
+    }
+
+}
