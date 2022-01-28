@@ -67,7 +67,8 @@ Change the AttachDbFile name to the full path of the BrainWare.mdf file (located
 - Several other code changes…
 	
 ### Blazor Server
-- Added vscode project for a bonus example with minimal refactoring.  Run on cmdline in Blazor folder “dotnet watch”
+- Added vscode project for a bonus example with minimal refactoring.  
+- Run on cmdline in Blazor folder “dotnet watch”
 
 
 
