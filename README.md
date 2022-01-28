@@ -58,6 +58,7 @@ Change the AttachDbFile name to the full path of the BrainWare.mdf file (located
 - Adding details to the API Help pages
 - Adding Angular
 - Make sure the production build uses the min.js and .css files
+- Change Production Web.Release.config for connectionstring and custom error pages
 - Upgrading .net framework and use System.Text.Json
 - Separate the Service Layer from Web Project
 - Upgrade bootstrap and other Nuget packages
