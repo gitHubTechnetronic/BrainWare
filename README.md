@@ -48,7 +48,7 @@ Change the AttachDbFile name to the full path of the BrainWare.mdf file (located
 - Added Display Models
 - Added simple authorization token
 - Added code to Test
-- Several code changesÖ
+- Several code changes‚Ä¶
 
 #### More refactoring to consider
 - Adding EF or Dapper
@@ -64,10 +64,10 @@ Change the AttachDbFile name to the full path of the BrainWare.mdf file (located
 - Upgrade bootstrap and other Nuget packages
 - Change Display Models to the ViewModel with some redesign
 - Make sure we have explicitly type for readability
-- Several other code changesÖ
+- Several other code changes‚Ä¶
 	
 ### Blazor Server
-- Added vscode project for a bonus example with minimal refactoring.  On cmdline ìdotnet watchî
+- Added vscode project for a bonus example with minimal refactoring.  On cmdline ‚Äúdotnet watch‚Äù
 
 
 
