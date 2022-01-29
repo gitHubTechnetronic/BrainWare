@@ -1,5 +1,5 @@
 ﻿using DataAccessLibrary;
-using Web.DisplayModels;
+using Web.ViewModels;
 
 namespace Web.Infrastructure
 {

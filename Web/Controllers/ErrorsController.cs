@@ -33,6 +33,14 @@ namespace Web.Controllers
             Response.StatusCode = (int)HttpStatusCode.InternalServerError;
             return View();
         }
-        
+
+        //401
+        [HttpGet]
+        public ActionResult Unauthorized()
+        {
+            Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+            return View();
+        }
+
     }
 }

@@ -5,8 +5,7 @@ namespace Web.Infrastructure
 {
     using System.Data;
     using System.Threading.Tasks;
-    using global::DisplayModels;
-    using DisplayModels;
+    using ViewModels;
 
     public class OrderService : IOrderService
     {       

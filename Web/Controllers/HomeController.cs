@@ -7,7 +7,7 @@ namespace Web.Controllers
         
         public ActionResult Index()
         {            
-            this.ViewBag.Title = "Home Page";
+            this.ViewBag.Title = "Order Page";
             return View();
         }
                

@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using DisplayModels;
 
-namespace Web.DisplayModels
+namespace Web.ViewModels
 {
     public interface ICompanyOrdersRepository
     {

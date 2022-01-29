@@ -178,10 +178,10 @@
     <Compile Include="Controllers\API\OrderController.cs" />
     <Compile Include="Controllers\ErrorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="DisplayModels\BaseRepository.cs" />
-    <Compile Include="DisplayModels\CompanyOrders.cs" />
-    <Compile Include="DisplayModels\CompanyOrdersRepository.cs" />
-    <Compile Include="DisplayModels\ICompanyOrdersRepository.cs" />
+    <Compile Include="ViewModels\BaseRepository.cs" />
+    <Compile Include="ViewModels\CompanyOrders.cs" />
+    <Compile Include="ViewModels\CompanyOrdersRepository.cs" />
+    <Compile Include="ViewModels\ICompanyOrdersRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -189,10 +189,10 @@
     <Compile Include="Infrastructure\Factory.cs" />
     <Compile Include="Infrastructure\IOrderService.cs" />
     <Compile Include="Infrastructure\OrderService.cs" />
-    <Compile Include="DisplayModels\Company.cs" />
-    <Compile Include="DisplayModels\Order.cs" />
-    <Compile Include="DisplayModels\OrderProduct.cs" />
-    <Compile Include="DisplayModels\Product.cs" />
+    <Compile Include="ViewModels\Company.cs" />
+    <Compile Include="ViewModels\Order.cs" />
+    <Compile Include="ViewModels\OrderProduct.cs" />
+    <Compile Include="ViewModels\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -269,6 +269,7 @@
     <Content Include="Views\Errors\NotFound.cshtml" />
     <Content Include="Views\Errors\InternalServerError.cshtml" />
     <Content Include="Views\Errors\Forbidden.cshtml" />
+    <Content Include="Views\Errors\Unauthorized.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

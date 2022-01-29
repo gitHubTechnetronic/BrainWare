@@ -1,5 +1,4 @@
-﻿using DisplayModels;
-using Web.DisplayModels;
+﻿using Web.ViewModels;
 
 namespace Web.Infrastructure
 {

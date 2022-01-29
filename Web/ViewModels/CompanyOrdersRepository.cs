@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace Web.DisplayModels
+namespace Web.ViewModels
 {
     using DataAccessLibrary;
-    using global::DisplayModels;
 
     public class CompanyOrdersRepository : BaseRepository, ICompanyOrdersRepository
     {

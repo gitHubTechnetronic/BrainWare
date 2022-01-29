@@ -1,5 +1,5 @@
 ﻿
-namespace DisplayModels
+namespace Web.ViewModels
 {
 
     public class Product

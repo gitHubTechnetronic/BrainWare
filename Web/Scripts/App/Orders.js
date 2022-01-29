@@ -26,8 +26,6 @@ $(document).ready(function () {
 
             if (data) {
 
-                console.log(data);
-
                 var json_data = JSON.parse(data);
 
                 if (json_data.Company.isinDatabase) {
@@ -82,6 +80,9 @@ $(document).ready(function () {
             console.log(jqXHR);
             console.log(textStatus);
             console.log(errorThrown);
+
+            $('#companyOrders').hide();
+            $('#companyOrdersAlert').html('[Error: ' + errorThrown + ']').show();
         }
     });
 });
