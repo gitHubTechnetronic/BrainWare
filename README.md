@@ -58,13 +58,11 @@ Change the AttachDbFile name to the full path of the BrainWare.mdf file (located
 - Adding more Unit Test and creating separate test data
 - Adding details to the API Help pages. Note: Do not use Swagger because of risk of third party vulnerabilities Example(https://nvd.nist.gov/vuln/detail/CVE-2021-21363)
 - Adding Angular
-- Make sure the production build uses the min .js and .css files
 - Improve UI of the custom error pages
 - Change Production Web.Release.config for connectionstring 
 - Upgrading .net framework and use System.Text.Json
 - Separate the Service Layer from Web Project
 - Upgrade bootstrap and other Nuget packages
-- Change Display Models to the ViewModel with some redesign
 - Make sure we have explicitly type for readability
 - Several other code changes…
 	

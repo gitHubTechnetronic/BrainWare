@@ -27,6 +27,8 @@ namespace Web
             bundles.Add(new ScriptBundle("~/bundles/orders").Include(
                       "~/Scripts/App/Orders.js"));
 
+            //Note: <compilation debug="true" /> in Web.config is what actually enables bundling and minification
+
         }
     }
 }
