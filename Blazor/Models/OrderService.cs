@@ -116,7 +116,7 @@ if(configuration.GetConnectionString("ConnectionString") != null) {
         }
 
         
-        public CompanyOrders GetCompanyOrders(int CompanyId)
+        public async Task< CompanyOrders> GetCompanyOrders(int CompanyId)
         {
                       
             _connectionstring = _config.GetConnectionString("Default");

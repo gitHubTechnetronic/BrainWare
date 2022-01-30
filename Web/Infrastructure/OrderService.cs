@@ -3,13 +3,14 @@ using System.Linq;
 
 namespace Web.Infrastructure
 {
+    using System;
     using System.Data;
     using System.Threading.Tasks;
     using ViewModels;
 
     public class OrderService : IOrderService
-    {       
-               
+    {
+        
         public CompanyOrders GetCompanyOrders(ICompanyOrdersRepository CompanyOrders, int CompanyId)
         {
             

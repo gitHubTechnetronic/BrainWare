@@ -11,7 +11,9 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddControllers();
 builder.Services.AddHttpClient();
 
-builder.Services.AddSingleton<OrderService>();
+//builder.Services.AddSingleton<OrderService>();
+
+builder.Services.AddScoped<OrderService>();
 
 var app = builder.Build();
 
