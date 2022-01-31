@@ -51,12 +51,14 @@ Change the AttachDbFile name to the full path of the BrainWare.mdf file (located
 - Added some custom error pages
 - Several code changes…
 
-### More refactoring to consider
+
+#### More refactoring to consider
 - Adding EF or Dapper
-- Adding an IOC container and more decoupling
+- Adding an IOC container and more decoupling  Note: Watch out for Leaky Abstractions i.e.(try not to use Lazy<>)
 - Adding Login Features
 - Adding more Unit Test and creating separate test data
 - Adding details to the API Help pages. Note: Do not use Swagger because of risk of third party vulnerabilities Example(https://nvd.nist.gov/vuln/detail/CVE-2021-21363)
+Also make sure the API is secure (A Cautionary Tale from a coworker) and like the insurance companies and many other organizations do not share or auto generate the API documentation.  The API documentation should be secured and shared with only entities that need it and changes communicated with them on a timely bases.
 - Adding Angular
 - Improve UI of the custom error pages
 - Change Production Web.Release.config for connectionstring 
@@ -69,6 +71,7 @@ Change the AttachDbFile name to the full path of the BrainWare.mdf file (located
 ### Blazor Server
 - Added vscode project for a bonus example with minimal refactoring.  
 - Run on cmdline in Blazor folder “dotnet watch”
+
 
 
 
