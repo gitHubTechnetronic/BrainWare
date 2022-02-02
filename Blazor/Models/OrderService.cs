@@ -184,5 +184,11 @@ if(configuration.GetConnectionString("ConnectionString") != null) {
             
         }
 
+        public async Task<CompanyOrders> GetCompanyOrdersAsync(int CompanyId)
+        {
+            return await Task.Run(() => GetCompanyOrders(CompanyId));
+        }
+
+
     }
 }

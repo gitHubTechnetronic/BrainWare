@@ -20,7 +20,7 @@ namespace Web.Controllers
     //using System.Web.Mvc;
     using Infrastructure;
     //using Models;
-        
+    
 
 
     [Produces("application/json")]
@@ -39,10 +39,10 @@ namespace Web.Controllers
         */
       
         [HttpGet]
-        public CompanyOrders GetCompanyOrders(int id)
+        public CompanyOrders GetCompanyOrders([FromServices] IConfiguration _config, int id = 1)
         {
-            var data = new OrderService();
-
+            var data = new OrderService(_config);
+            
             //return data.GetOrdersForCompany(id);
 
             return data.GetCompanyOrders(id);  // JsonConvert.SerializeObject(
