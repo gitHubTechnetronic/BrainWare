@@ -5,12 +5,20 @@ using Microsoft.Extensions.DependencyInjection;
 using System.Web.Http.Dependencies;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 
 namespace Web.Infrastructure
 {
     
     public class Factory : System.Web.Mvc.IDependencyResolver, System.Web.Http.Dependencies.IDependencyResolver 
-    {        
+    {
+
+        public enum DBAccessType
+        {
+            SQL,
+            EF,
+            Dapper
+        }
 
         private IServiceProvider _serviceProvider;
         
@@ -48,14 +56,27 @@ namespace Web.Infrastructure
             return new OrderService();
         }
 
-        public static ISQLDataAccess CreateSQLDataAccess()
+        public static ISQLDataAccess CreateSQLDataAccess(DBAccessType useThisDB)
         {
-            return new SQLDataAccess();
+
+            switch (useThisDB)
+            {
+                case DBAccessType.SQL:
+                    return new SQLDataAccess();                    
+                case DBAccessType.EF:
+                    return new EFDataAccess(ConfigurationManager.ConnectionStrings["BrainWareConnectionString"].ConnectionString);                    
+                case DBAccessType.Dapper:
+                    //Need to add Dapper - Until then return SQL
+                    return new SQLDataAccess();
+                default:
+                    return new SQLDataAccess();                    
+            }
+                      
         }
 
-        public static ICompanyOrdersRepository CreateCompanyOrdersRepository()
+        public static ICompanyOrdersRepository CreateCompanyOrdersRepository(DBAccessType useThisDB)
         {
-            return new CompanyOrdersRepository();
+            return new CompanyOrdersRepository(useThisDB);
         }
     }
 }

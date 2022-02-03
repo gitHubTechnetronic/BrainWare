@@ -3,9 +3,17 @@
 namespace Web.ViewModels
 {
     using DataAccessLibrary;
+    using Infrastructure;
 
     public class CompanyOrdersRepository : BaseRepository, ICompanyOrdersRepository
     {
+
+        private Factory.DBAccessType _useThisDB = Factory.DBAccessType.EF;
+
+        public CompanyOrdersRepository(Factory.DBAccessType useThisDB)
+        {
+            _useThisDB = useThisDB;
+        }
 
         public CompanyOrders GetCompany(int CompanyId)
         {
@@ -17,7 +25,7 @@ namespace Web.ViewModels
             
             try
             {
-                convertCompany = Infrastructure.Factory.CreateSQLDataAccess().GetCompany(_connectionstring, CompanyId);
+                convertCompany = Infrastructure.Factory.CreateSQLDataAccess(_useThisDB).GetCompany(_connectionstring, CompanyId);
             }
             catch (ExNoCompany)
             {
@@ -34,13 +42,12 @@ namespace Web.ViewModels
 
             return _companyOrders;
         }
-
-        
+                
         public List<Order> GetCompanyOrders(int CompanyId)
         {
             var orderValues = new List<Order>();
 
-            var convertOrders = Infrastructure.Factory.CreateSQLDataAccess().GetCompanyOrders(_connectionstring, CompanyId);
+            var convertOrders = Infrastructure.Factory.CreateSQLDataAccess(_useThisDB).GetCompanyOrders(_connectionstring, CompanyId);
 
             foreach (var order in convertOrders)
             {
@@ -55,13 +62,12 @@ namespace Web.ViewModels
             return orderValues;
 
         }
-
-        
+                
         public List<OrderProduct> GetOrderProducts(int CompanyId)
         {
             var orderProductValues = new List<OrderProduct>();
 
-            var convertOrderProducts = Infrastructure.Factory.CreateSQLDataAccess().GetOrderProducts(_connectionstring, CompanyId);
+            var convertOrderProducts = Infrastructure.Factory.CreateSQLDataAccess(_useThisDB).GetOrderProducts(_connectionstring, CompanyId);
 
             foreach (var orderProduct in convertOrderProducts)
             {

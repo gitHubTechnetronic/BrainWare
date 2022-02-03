@@ -29,10 +29,22 @@ namespace Web.Controllers
 
         [HttpGet]
         public string GetCompanyOrders(int id)
-        {           
+        {
+            /*
+            System.Web.Http.Controllers.HttpActionContext actionContext
+            try
+            {
+                var someCode = (from h in actionContext.Request.Headers where h.Key == "Authorization" select h.Value.First()).FirstOrDefault();
+                return someCode == "demo Token";
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            */
             
             //Consider upgrading to System.Text.Json when upgrading .net framework            
-            return JsonConvert.SerializeObject(_orderService.GetCompanyOrders(Factory.CreateCompanyOrdersRepository(), id));
+            return JsonConvert.SerializeObject(_orderService.GetCompanyOrders(Factory.CreateCompanyOrdersRepository(Factory.DBAccessType.EF), id));
         }
 
     }

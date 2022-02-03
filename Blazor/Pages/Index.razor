@@ -25,22 +25,22 @@
     
         @if(lsts is not null && lsts.Orders is not null)
         {            
-
-              @foreach (var forecast in lsts.Orders)
+            @foreach (var order in lsts.Orders)
             {
                 <ul>
-                    <li>@forecast.Description (Total: $@forecast.OrderTotal)</li>
+                    <li>@order.Description (Total: $@order.OrderTotal)</li>
                     <ul>
+                        @if(order.OrderProducts is not null)
+                        {
+                            @foreach (var orderProduct in order.OrderProducts)
+                            {
+                                <li>@orderProduct?.Product?.Name @orderProduct?.Quantity $@orderProduct?.Price /ea</li>                            
+                            }
 
-                    @foreach (var orderProduct in forecast.OrderProducts)
-                    {
-                    <li>@orderProduct.Product.Name @orderProduct.Quantity $@orderProduct.Price /ea</li>
-                    }
+                        }
                     </ul>
-
                 </ul>
-            }
-            
+            }            
         }
         else
         {

@@ -25,24 +25,49 @@ namespace Tests.Controllers
         }
 
         [TestMethod]
-        public void Test()
+        public void TestSQL()
         {
             
             IOrderService data = Factory.CreateOrderService();
 
             Assert.IsNotNull(data);
-
-            CompanyOrders _companyOrders = Factory.CreateCompanyOrdersRepository().GetCompany(1);
+            
+            CompanyOrders _companyOrders = Factory.CreateCompanyOrdersRepository(Factory.DBAccessType.SQL).GetCompany(1);
 
             Assert.IsNotNull(_companyOrders);
 
             Assert.AreEqual(1, _companyOrders.Company.CompanyId);
             
-            var convertCompany = Factory.CreateSQLDataAccess().GetCompany(ConfigurationManager.ConnectionStrings["BrainWareConnectionString"].ConnectionString, 1);
+            var convertCompany = Factory.CreateSQLDataAccess(Factory.DBAccessType.SQL).GetCompany(ConfigurationManager.ConnectionStrings["BrainWareConnectionString"].ConnectionString, 1);
 
             Assert.IsNotNull(convertCompany);
 
             Assert.IsTrue(true);
         }
+
+
+        [TestMethod]
+        public void TestEF()
+        {
+
+            IOrderService data = Factory.CreateOrderService();
+
+            Assert.IsNotNull(data);
+
+            ICompanyOrdersRepository CompanyOrders = new CompanyOrdersRepository(Factory.DBAccessType.EF);
+
+            CompanyOrders _companyOrders = CompanyOrders.GetCompany(1);
+
+            Assert.IsNotNull(_companyOrders);
+
+            Assert.AreEqual(1, _companyOrders.Company.CompanyId);
+
+            var convertCompany = Factory.CreateSQLDataAccess(Factory.DBAccessType.EF).GetCompany(ConfigurationManager.ConnectionStrings["BrainWareConnectionString"].ConnectionString, 1);
+
+            Assert.IsNotNull(convertCompany);
+
+            Assert.IsTrue(true);
+        }
+
     }
 }
