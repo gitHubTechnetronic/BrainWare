@@ -11,6 +11,7 @@ namespace DataAccessLibrary.Models
         [Column("company_id")]
         public int CompanyId { get; set; }
 
+        [MaxLength(128)]
         [Column("name")]
         public string CompanyName { get; set; }
         

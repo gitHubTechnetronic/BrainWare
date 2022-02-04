@@ -30,6 +30,7 @@ namespace Web.Controllers
         [HttpGet]
         public string GetCompanyOrders(int id)
         {
+            //need to add login and jwt
             /*
             System.Web.Http.Controllers.HttpActionContext actionContext
             try

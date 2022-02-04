@@ -12,6 +12,7 @@ namespace DataAccessLibrary.Models
 
         //public string CompanyName { get; set; }
 
+        [MaxLength(1000)]
         public string Description { get; set; }
 
         [ForeignKey("Company")]

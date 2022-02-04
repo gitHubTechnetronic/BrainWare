@@ -1,5 +1,4 @@
 ﻿using DataAccessLibrary;
-using System.Threading.Tasks;
 using Web.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System.Web.Http.Dependencies;
@@ -9,7 +8,7 @@ using System.Configuration;
 
 namespace Web.Infrastructure
 {
-    
+
     public class Factory : System.Web.Mvc.IDependencyResolver, System.Web.Http.Dependencies.IDependencyResolver 
     {
 

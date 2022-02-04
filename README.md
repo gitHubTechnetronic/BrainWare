@@ -49,12 +49,12 @@ Change the AttachDbFile name to the full path of the BrainWare.mdf file (located
 - Added simple authorization token
 - Added code to Test
 - Added some custom error pages
-- Added EntityFramwork
+- Added EntityFramwork( set Enum Factory.DBAccessType in OrderController to switch )
 - Several code changes…
 
 
 #### More refactoring to consider
-- Adding Dapper and mkae EF changes such as fields, use Stored Procedures and etc.
+- Adding Dapper and mkae EF changes such as use Stored Procedures
 - Adding an IOC container and more decoupling  Note: Watch out for Leaky Abstractions i.e.(try not to use Lazy<>)
 - Adding Login Features
 - Adding more Unit Test and creating separate test data
