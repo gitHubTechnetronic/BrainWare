@@ -54,7 +54,7 @@ Change the AttachDbFile name to the full path of the BrainWare.mdf file (located
 
 
 #### More refactoring to consider
-- Adding Dapper and mkae EF changes such as use Stored Procedures
+- Adding Dapper and make EF changes such as use Stored Procedures
 - Adding an IOC container and more decoupling  Note: Watch out for Leaky Abstractions i.e.(try not to use Lazy<>)
 - Adding Login Features
 - Adding more Unit Test and creating separate test data
