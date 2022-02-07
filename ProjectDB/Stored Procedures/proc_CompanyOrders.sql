@@ -11,7 +11,7 @@ BEGIN
 SET NOCOUNT ON
 SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED
 SELECT  
-	o.description, o.order_id 
+	o.description as Description, o.order_id 
 
 FROM [order] o 
 

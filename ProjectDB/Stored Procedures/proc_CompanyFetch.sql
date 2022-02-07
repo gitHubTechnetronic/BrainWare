@@ -10,8 +10,8 @@ BEGIN
 SET NOCOUNT ON
 SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED
 SELECT
-	c.company_id,
-	c.name
+	c.company_id as CompanyId,
+	c.name as CompanyName
 FROM Company c
 WHERE
 	c.company_id = @Id

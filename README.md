@@ -73,7 +73,10 @@ Also make sure the API is secure (A Cautionary Tale from a coworker) and like th
 - Added vscode project for a bonus example with minimal refactoring.  
 - Run on cmdline in Blazor folder “dotnet watch”
 
-
-
+### Nodejs api Server
+- Added vscode project for a bonus example using Nodejs for the API.  
+- Change the ~\NodeJS\node_modules\dbconfig.js for mssql connection.
+- Add your user to db giving access to the three procs.
+- Run on cmdline in NodeJS folder “node api.js” then run the Web project or test on url http://localhost:8090/api/companyorders/1 .
 
 

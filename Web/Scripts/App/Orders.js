@@ -14,9 +14,10 @@ $(document).ready(function () {
         }
     }
 
+    //Note ajax call to new nodejs project so run node api.js
     var $orders = $('#orders');
     $.ajax({
-        'url': '/api/order/' + company_id,
+        'url': 'http://localhost:8090/api/companyorders/' + company_id, // '/api/order/' + company_id,  // 
         'type': 'GET',
         headers: { "Authorization": "demo Token" },
 
@@ -25,9 +26,9 @@ $(document).ready(function () {
             var $orderList = $('<ul/>');
 
             if (data) {
-
+                
                 var json_data = JSON.parse(data);
-
+                
                 if (json_data.Company.isinDatabase) {
                     $('#companyname').append(json_data.Company.CompanyName);
 
@@ -45,34 +46,39 @@ $(document).ready(function () {
                 });
 
                 var $template = $(".template");
+                
+                if (json_data.Orders != undefined) {
+                    $.each(json_data.Orders,
+                        function (i) {
 
-                $.each(json_data.Orders,
-                    function (i) {
+                            var $newPanel = $template.clone();
 
-                        var $newPanel = $template.clone();
+                            $newPanel.find(".collapse").removeClass("in");
+                            $newPanel.find(".accordion-toggle").attr("href", "#" + (i))
+                                     .text(this.Description + ' (Total: ' + formatter.format(this.OrderTotal) + ')');
 
-                        $newPanel.find(".collapse").removeClass("in");
-                        $newPanel.find(".accordion-toggle").attr("href", "#" + (i))
-                                 .text(this.Description + ' (Total: ' + formatter.format(this.OrderTotal) + ')');
+                            var $li = $('<li/>').text(this.Description + ' (Total: ' + formatter.format(this.OrderTotal) + ')')
+                                .appendTo($orderList);
 
-                        var $li = $('<li/>').text(this.Description + ' (Total: ' + formatter.format(this.OrderTotal) + ')')
-                            .appendTo($orderList);
+                            var $productList = $('<ul/>');
 
-                        var $productList = $('<ul/>');
 
-                        $.each(this.OrderProducts, function (j) {
-                            var $li2 = $('<li/>').text(this.Product.Name + ' (' + this.Quantity + ' @@ ' + formatter.format(this.Price) + '/ea)')
-                                .appendTo($productList);
+                            $.each(this.OrderProducts, function (j) {
+                                var $li2 = $('<li/>').text(this.Product.Name + ' (' + this.Quantity + ' @ ' + formatter.format(this.Price) + '/ea)')
+                                    .appendTo($productList);
+                            });
+
+
+                            $newPanel.find(".panel-body").html($productList);
+
+                            $newPanel.find(".panel-collapse").attr("id", i).addClass("collapse").removeClass("in");
+                            $("#accordion").append($newPanel.fadeIn());
+
                         });
-
-                        $newPanel.find(".panel-body").html($productList);
-
-                        $newPanel.find(".panel-collapse").attr("id", i).addClass("collapse").removeClass("in");
-                        $("#accordion").append($newPanel.fadeIn());
-
-                    });
+                }
 
                 $('#accordion .collapse').collapse('show');
+                
 
             }
         },
