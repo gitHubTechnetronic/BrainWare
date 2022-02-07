@@ -79,4 +79,3 @@ Also make sure the API is secure (A Cautionary Tale from a coworker) and like th
 - Add your user to db giving access to the three procs.
 - Run on cmdline in NodeJS folder “node api.js” then run the Web project or test on url http://localhost:8090/api/companyorders/1 .
 
-
