@@ -17,7 +17,7 @@ $(document).ready(function () {
     //Note ajax call to new nodejs project so run node api.js
     var $orders = $('#orders');
     $.ajax({
-        'url': 'http://localhost:8090/api/companyorders/' + company_id, // '/api/order/' + company_id,  // 
+        'url': '/api/order/' + company_id,  // 'http://localhost:8090/api/companyorders/' + company_id, // 
         'type': 'GET',
         headers: { "Authorization": "demo Token" },
 

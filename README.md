@@ -1,3 +1,45 @@
+## Refactor Notes
+### MVC
+- Added data access layer
+- Added Stored Procedures
+- Added repository
+- Added ViewModels
+- Added simple authorization token
+- Added code to Test
+- Added some custom error pages
+- Added EntityFramwork( set Enum Factory.DBAccessType in OrderController to switch )
+- Added Dapper( set Enum Factory.DBAccessType in OrderController to switch )
+- Several code changes…
+
+
+#### More refactoring to consider
+- Make EF changes to use Stored Procedures
+- Change Models to use db field names to avoid work around
+- Adding an IOC container and more decoupling  Note: Watch out for Leaky Abstractions i.e.(try not to use Lazy<>)
+- Adding Login Features
+- Adding more Unit Test and creating separate test data
+- Adding details to the API Help pages. Note: Do not use Swagger because of risk of third party vulnerabilities Example(https://nvd.nist.gov/vuln/detail/CVE-2021-21363)
+Also make sure the API is secure (A Cautionary Tale from a coworker) and like the insurance companies and many other organizations do not share or auto generate the API documentation.  The API documentation should be secured and shared with only entities that need it and changes communicated with them on a timely bases.
+- Adding Angular
+- Improve UI of the custom error pages
+- Change Production Web.Release.config for connectionstring 
+- Upgrading .net framework and use System.Text.Json
+- Separate the Service Layer from Web Project
+- Upgrade bootstrap and other Nuget packages
+- Make sure we have explicitly type for readability
+- Several other code changes…
+	
+### Blazor Server
+- Added vscode project for a bonus example with minimal refactoring.  
+- Run on cmdline in Blazor folder “dotnet watch”
+
+### Nodejs api Server
+- Added vscode project for a bonus example using Nodejs for the API.  
+- Change the ~\NodeJS\node_modules\dbconfig.js for mssql connection.
+- Add your user to db giving access to the three procs.
+- Run on cmdline in NodeJS folder “node api.js” then run the Web project or test on url http://localhost:8090/api/companyorders/1 .
+
+
 # BrainWare Order List
 
 This is a very small sample web application written in a very simplistic manner.
@@ -38,44 +80,3 @@ Change the AttachDbFile name to the full path of the BrainWare.mdf file (located
 - Set the project Web, as the start up project
 - Press F5
 - Expected a browser is open with the result of the first order
-
-
-## Refactor Notes
-### MVC
-- Added data access layer
-- Added Stored Procedures
-- Added repository
-- Added ViewModels
-- Added simple authorization token
-- Added code to Test
-- Added some custom error pages
-- Added EntityFramwork( set Enum Factory.DBAccessType in OrderController to switch )
-- Several code changes…
-
-
-#### More refactoring to consider
-- Adding Dapper and make EF changes such as use Stored Procedures
-- Adding an IOC container and more decoupling  Note: Watch out for Leaky Abstractions i.e.(try not to use Lazy<>)
-- Adding Login Features
-- Adding more Unit Test and creating separate test data
-- Adding details to the API Help pages. Note: Do not use Swagger because of risk of third party vulnerabilities Example(https://nvd.nist.gov/vuln/detail/CVE-2021-21363)
-Also make sure the API is secure (A Cautionary Tale from a coworker) and like the insurance companies and many other organizations do not share or auto generate the API documentation.  The API documentation should be secured and shared with only entities that need it and changes communicated with them on a timely bases.
-- Adding Angular
-- Improve UI of the custom error pages
-- Change Production Web.Release.config for connectionstring 
-- Upgrading .net framework and use System.Text.Json
-- Separate the Service Layer from Web Project
-- Upgrade bootstrap and other Nuget packages
-- Make sure we have explicitly type for readability
-- Several other code changes…
-	
-### Blazor Server
-- Added vscode project for a bonus example with minimal refactoring.  
-- Run on cmdline in Blazor folder “dotnet watch”
-
-### Nodejs api Server
-- Added vscode project for a bonus example using Nodejs for the API.  
-- Change the ~\NodeJS\node_modules\dbconfig.js for mssql connection.
-- Add your user to db giving access to the three procs.
-- Run on cmdline in NodeJS folder “node api.js” then run the Web project or test on url http://localhost:8090/api/companyorders/1 .
-

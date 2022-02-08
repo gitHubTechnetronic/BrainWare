@@ -69,5 +69,28 @@ namespace Tests.Controllers
             Assert.IsTrue(true);
         }
 
+        [TestMethod]
+        public void TestDapper()
+        {
+
+            IOrderService data = Factory.CreateOrderService();
+
+            Assert.IsNotNull(data);
+
+            ICompanyOrdersRepository CompanyOrders = new CompanyOrdersRepository(Factory.DBAccessType.Dapper);
+
+            CompanyOrders _companyOrders = CompanyOrders.GetCompany(1);
+
+            Assert.IsNotNull(_companyOrders);
+
+            Assert.AreEqual(1, _companyOrders.Company.CompanyId);
+
+            var convertCompany = Factory.CreateSQLDataAccess(Factory.DBAccessType.Dapper).GetCompany(ConfigurationManager.ConnectionStrings["BrainWareConnectionString"].ConnectionString, 1);
+
+            Assert.IsNotNull(convertCompany);
+
+            Assert.IsTrue(true);
+        }
+
     }
 }

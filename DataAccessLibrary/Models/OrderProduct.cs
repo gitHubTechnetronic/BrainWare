@@ -14,12 +14,22 @@ namespace DataAccessLibrary.Models
         [ForeignKey("Order")]
         [Column("order_id")]
         public int OrderId { get; set; }
-        
+
+        [NotMapped]
+        public int order_id { get; set; }
+
         [ForeignKey("Product")]
         [Column("product_id")]
         public int ProductId { get; set; }
 
         public virtual Product Product { get; set; }
+                
+        [NotMapped]
+        public string Name { get; set; }                         
+        
+        [NotMapped]
+        public decimal ProductPrice { get; set; }
+                    
 
         public decimal Price { get; set; }
 

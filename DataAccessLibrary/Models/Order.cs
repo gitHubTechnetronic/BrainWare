@@ -10,6 +10,9 @@ namespace DataAccessLibrary.Models
         [Column("order_id")]
         public int OrderId { get; set; }
 
+        [NotMapped]
+        public int order_id { get; set; }
+
         //public string CompanyName { get; set; }
 
         [MaxLength(1000)]
