@@ -36,8 +36,8 @@ namespace DataAccessLibrary
                         {
                             var record1 = (IDataRecord)oReader;
                             
-                            values.CompanyId = record1.GetInt32(0);
-                            values.CompanyName = record1.GetString(1);
+                            values.company_id = record1.GetInt32(0);
+                            values.name = record1.GetString(1);
 
                         }
                     }
@@ -74,7 +74,7 @@ namespace DataAccessLibrary
                             values.Add(new Order()
                             {
                                 Description = record1.GetString(0),
-                                OrderId = record1.GetInt32(1),
+                                order_id = record1.GetInt32(1),
                                 OrderProducts = new List<OrderProduct>()
                             });
                         }
@@ -110,8 +110,8 @@ namespace DataAccessLibrary
 
                             values.Add(new OrderProduct()
                             {
-                                OrderId = record1.GetInt32(1),
-                                ProductId = record1.GetInt32(2),
+                                order_id = record1.GetInt32(1),
+                                product_id = record1.GetInt32(2),
                                 Price = record1.GetDecimal(0),
                                 Quantity = record1.GetInt32(3),
                                 Product = new Product()

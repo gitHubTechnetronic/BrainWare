@@ -14,7 +14,7 @@ $(document).ready(function () {
         }
     }
 
-    //Note ajax call to new nodejs project so run node api.js
+    //Note ajax call to new nodejs project so run node api.js if using 'http://localhost:8090/api/companyorders/' + company_id,
     var $orders = $('#orders');
     $.ajax({
         'url': '/api/order/' + company_id,  // 'http://localhost:8090/api/companyorders/' + company_id, // 

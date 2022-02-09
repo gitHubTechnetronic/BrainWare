@@ -12,15 +12,17 @@ namespace DataAccessLibrary.Models
         public int OrderProductId { get; set; }
 
         [ForeignKey("Order")]
-        [Column("order_id")]
-        public int OrderId { get; set; }
-
-        [NotMapped]
+        //[Column("order_id")]
         public int order_id { get; set; }
+        //public int OrderId { get; set; }
+
+        //[NotMapped]
+        //public int order_id { get; set; }
 
         [ForeignKey("Product")]
-        [Column("product_id")]
-        public int ProductId { get; set; }
+        //[Column("product_id")]
+        public int product_id { get; set; }
+        //public int ProductId { get; set; }
 
         public virtual Product Product { get; set; }
                 

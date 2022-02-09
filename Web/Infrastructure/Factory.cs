@@ -65,7 +65,6 @@ namespace Web.Infrastructure
                 case DBAccessType.EF:
                     return new EFDataAccess(ConfigurationManager.ConnectionStrings["BrainWareConnectionString"].ConnectionString);                    
                 case DBAccessType.Dapper:
-                    //Need to add Dapper - Until then return SQL
                     return new DapperDataAccess();
                 default:
                     return new SQLDataAccess();                    

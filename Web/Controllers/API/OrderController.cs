@@ -45,7 +45,7 @@ namespace Web.Controllers
             */
             
             //Consider upgrading to System.Text.Json when upgrading .net framework            
-            return JsonConvert.SerializeObject(_orderService.GetCompanyOrders(Factory.CreateCompanyOrdersRepository(Factory.DBAccessType.EF), id));
+            return JsonConvert.SerializeObject(_orderService.GetCompanyOrders(Factory.CreateCompanyOrdersRepository(Factory.DBAccessType.Dapper), id));
         }
 
     }

@@ -7,11 +7,12 @@ namespace DataAccessLibrary.Models
     public class Order
     {
         [Key]
-        [Column("order_id")]
-        public int OrderId { get; set; }
-
-        [NotMapped]
+        //[Column("order_id")]
         public int order_id { get; set; }
+        //public int OrderId { get; set; }
+
+        //[NotMapped]
+        //public int order_id { get; set; }
 
         //public string CompanyName { get; set; }
 
@@ -19,8 +20,9 @@ namespace DataAccessLibrary.Models
         public string Description { get; set; }
 
         [ForeignKey("Company")]
-        [Column("company_id")]
-        public int CompanyId { get; set; }
+        //[Column("company_id")]
+        public int company_id { get; set; }
+        //public int CompanyId { get; set; }
 
         public virtual List<OrderProduct> OrderProducts { get; set; }
 

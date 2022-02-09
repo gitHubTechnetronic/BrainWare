@@ -78,7 +78,7 @@ async  function  getOrders(companyId) {
           }
           else
           {
-            data[0][0].CompanyName = data[0][0].CompanyName.trim();
+            data[0][0].CompanyName = data[0][0].name.trim();
             data[0][0].isinDatabase = true;
             data[0][0].ErrorMessage = null;
 

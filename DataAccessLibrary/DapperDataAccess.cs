@@ -37,13 +37,8 @@ namespace DataAccessLibrary
 
             using (SqlConnection _con = new SqlConnection(connectionString))
             {
-                values = _con.Query<Order>($"proc_CompanyOrders { CompanyId }").ToList();
-                
-                Parallel.ForEach(values, val =>
-                {
-                    val.OrderId = val.order_id;                    
-                });
-                               
+                values = _con.Query<Order>($"proc_CompanyOrders { CompanyId }").ToList(); 
+
             }
             
             return values;
@@ -61,10 +56,7 @@ namespace DataAccessLibrary
                 values = _con.Query<OrderProduct>($"proc_OrderProducts { CompanyId }").ToList(); 
 
                 Parallel.ForEach(values, val =>
-                {
-
-                    val.OrderId = val.order_id;
-
+                {                    
                     val.Product = new Product()
                     {
                         Name = val.Name,

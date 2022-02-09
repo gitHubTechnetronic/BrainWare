@@ -1,26 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-
-using BrainWare.Data;
+﻿using Microsoft.AspNetCore.Mvc;
 using DisplayModels;
-
 
 namespace Web.Controllers
 {
     //using System.Web.Mvc;
     using Infrastructure;
     //using Models;
-    
 
 
     [Produces("application/json")]

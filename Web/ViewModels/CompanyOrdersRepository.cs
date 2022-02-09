@@ -37,8 +37,8 @@ namespace Web.ViewModels
             }
 
             _companyOrders.Company.isinDatabase = true;
-            _companyOrders.Company.CompanyId = convertCompany.CompanyId;
-            _companyOrders.Company.CompanyName = convertCompany.CompanyName.Trim();
+            _companyOrders.Company.CompanyId = convertCompany.company_id;
+            _companyOrders.Company.CompanyName = convertCompany.name.Trim();
 
             return _companyOrders;
         }
@@ -54,7 +54,7 @@ namespace Web.ViewModels
                 orderValues.Add(new Order()
                 {
                     Description = order.Description,
-                    OrderId = order.OrderId,
+                    OrderId = order.order_id,
                     OrderProducts = new List<OrderProduct>()
                 });
             }
@@ -73,8 +73,8 @@ namespace Web.ViewModels
             {
                 orderProductValues.Add(new OrderProduct()
                 {
-                    OrderId = orderProduct.OrderId,
-                    ProductId = orderProduct.ProductId,
+                    OrderId = orderProduct.order_id,
+                    ProductId = orderProduct.product_id,
                     Price = orderProduct.Price,
                     Quantity = orderProduct.Quantity,
                     Product = new Product()

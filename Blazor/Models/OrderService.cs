@@ -1,20 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Threading.Tasks;
-
-using BrainWare.Data;
-using DataAccessLibrary;
-
-namespace Web.Infrastructure
+﻿namespace Web.Infrastructure
 {
     using System.Data;
     using DisplayModels;
-    
+
     using Microsoft.Extensions.Configuration;
-    using Microsoft.Extensions.DependencyInjection;
-    
 
     public class OrderService
     {

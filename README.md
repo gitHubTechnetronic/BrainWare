@@ -13,8 +13,6 @@
 
 
 #### More refactoring to consider
-- Make EF changes to use Stored Procedures
-- Change Models to use db field names to avoid work around
 - Adding an IOC container and more decoupling  Note: Watch out for Leaky Abstractions i.e.(try not to use Lazy<>)
 - Adding Login Features
 - Adding more Unit Test and creating separate test data

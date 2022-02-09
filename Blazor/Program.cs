@@ -1,6 +1,3 @@
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
-using BrainWare.Data;
 using Web.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
