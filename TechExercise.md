@@ -22,6 +22,7 @@ Write a SQL query that retrieves every person and their most recent order (if on
 
 In the above results, the first is a person with at least one order, the second row is a person without an order.
 
+https://github.com/gitHubTechnetronic/BrainWare/blob/91d7ce7f4df4d75db158a52d977c4738fb049663/ProjectDB/Stored%20Procedures/proc_PersonOrders.sql#L13-L18
 
 ### Exercise 2: High Availability Upgrades
 
@@ -40,6 +41,7 @@ Write a data access method that takes a date as a parameter, calls a stored proc
 
 Make any assumptions that you feel are needed.  Please include a short description of those assumptions.
 
+https://github.com/gitHubTechnetronic/BrainWare/blob/91d7ce7f4df4d75db158a52d977c4738fb049663/DataAccessLibrary/DapperDataAccess.cs#L73-L84
 
 ### Exercise 5:
 
