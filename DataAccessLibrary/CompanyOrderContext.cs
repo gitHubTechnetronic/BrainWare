@@ -20,7 +20,7 @@ namespace DataAccessLibrary
         public CompanyOrderContext(String dbconfig) : base(dbconfig) { }
         
         public DbSet<Company> Company { get; set; }
-        public DbSet<Order> Order { get; set; }
+        public DbSet<Order_Company> Order_Company { get; set; }
         public DbSet<OrderProduct> OrderProduct { get; set; }
         public DbSet<Product> Product { get; set; }
 

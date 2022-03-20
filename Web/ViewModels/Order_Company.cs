@@ -2,7 +2,7 @@
 
 namespace Web.ViewModels
 {
-    public class Order
+    public class Order_Company
     {
         public int OrderId { get; set; }
 

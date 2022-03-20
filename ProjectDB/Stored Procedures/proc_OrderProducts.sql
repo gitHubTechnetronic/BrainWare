@@ -16,7 +16,7 @@ FROM orderproduct op
 INNER JOIN product p on op.product_id=p.product_id
 
 WHERE
-	op.order_id in (select o.order_id FROM [order] o WHERE o.company_id = @Id)
+	op.order_id in (select o.order_id FROM [Order_Company] o WHERE o.company_id = @Id)
 
 RETURN @@ROWCOUNT 
 END

@@ -18,14 +18,17 @@ namespace Web
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.min.js",
+                      "~/Scripts/bootstrap-datepicker.js",                      
                       "~/Scripts/respond.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.min.css",
+                      "~/Content/bootstrap-datepicker.css",                      
                       "~/Content/site.css"));
             
             bundles.Add(new ScriptBundle("~/bundles/orders").Include(
-                      "~/Scripts/App/Orders.js"));
+                      "~/Scripts/App/Orders.js",
+                      "~/Scripts/App/ConsoleLogDate.js"));
 
             //Note: <compilation debug="true" /> in Web.config is what actually enables bundling and minification
 

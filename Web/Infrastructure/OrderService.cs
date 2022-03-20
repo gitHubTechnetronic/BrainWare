@@ -32,7 +32,7 @@ namespace Web.Infrastructure
             
         }
 
-        public void PopulateProducts(List<Order> orderValues, List<OrderProduct> orderProductValues)
+        public void PopulateProducts(List<Order_Company> orderValues, List<OrderProduct> orderProductValues)
         {
             Parallel.ForEach(orderValues, order =>
             {
@@ -40,10 +40,35 @@ namespace Web.Infrastructure
             });
         }
         
-        public void TotalOrders(List<Order> orderValues)
+        public void TotalOrders(List<Order_Company> orderValues)
         {
             orderValues.ForEach(x => x.OrderTotal = (x.OrderProducts.Aggregate(0m, (c, d) => c += d.Price * d.Quantity)));
         }
+
+        
+        public List<Person> GetPersonOrdersByDate(IPersonOrdersRepository CompanyOrders, DateTime orderDate)
+        {
+
+            List<Person> _companyOrders = CompanyOrders.GetPersonOrdersByDate(orderDate);
+
+            /*
+            // Get the orders                        
+            var orderValues = CompanyOrders.GetCompanyOrders(CompanyId);
+
+            //Get the order products      
+            var orderProductValues = CompanyOrders.GetOrderProducts(CompanyId);
+
+            PopulateProducts(orderValues, orderProductValues);
+
+            TotalOrders(orderValues);
+
+            _companyOrders.Orders = orderValues;
+            */
+
+            return _companyOrders;
+
+        }
+        
 
     }
 }

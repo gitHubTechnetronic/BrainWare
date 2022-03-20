@@ -43,15 +43,15 @@ namespace DataAccessLibrary
 
         }
         
-        public List<Order> GetCompanyOrders(String connectionString, int CompanyId)
+        public List<Order_Company> GetCompanyOrders(String connectionString, int CompanyId)
         {
 
-            List<Order> values = new List<Order>();
+            List<Order_Company> values = new List<Order_Company>();
             
             //values = _dbcontext.Order.Where(x => x.company_id == CompanyId).ToList();
                         
             var code = new SqlParameter("@Id", CompanyId);
-            values = _dbcontext.Database.SqlQuery<Order>("exec proc_CompanyOrders @Id", code).ToList();
+            values = _dbcontext.Database.SqlQuery<Order_Company>("exec proc_CompanyOrders @Id", code).ToList();
             
             return values;
         }
@@ -77,6 +77,17 @@ namespace DataAccessLibrary
             });
             
 
+            return values;
+        }
+
+        public List<Person> GetPersonOrdersByDate(String connectionString, DateTime orderDate)
+        {
+
+            List<Person> values = new List<Person>();
+            
+            var code = new SqlParameter("@OrderDate", orderDate);
+            values = _dbcontext.Database.SqlQuery<Person>("exec proc_PersonOrdersByDate @OrderDate", code).ToList();
+                       
             return values;
         }
 

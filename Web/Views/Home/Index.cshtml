@@ -5,6 +5,39 @@
 <div class="row">
     <div id="companyOrdersAlert" class="alert alert-danger" role="alert" style="display:none;">        
     </div>
+        
+    <div id="personOrdersAlert" class="alert alert-danger" role="alert" style="display:none;">
+    </div>
+
+    <div class="col-md-12">
+        Date of Orders
+        <span>
+            <input class="datepicker" data-date-format="mm/dd/yyyy" placeholder="Date of Orders">
+        </span>
+        <button type="button" class="btn btn-primary" onclick="FindSearchForm()">Find</button>
+    </div>
+
+    <div id="personOrders" class="col-md-12">
+
+        <div id="accordionPerson">
+            <div class="panel panel-default templatePerson" style="display:none">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionPerson" href="#collapseOne">
+                            (templatePerson panel)
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        (templatePerson panel body)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
     <div id="companyOrders" class="col-md-12">
         <h2>Your Orders for <label id="companyname"></label></h2>
         <div id="orders"></div>
@@ -26,6 +59,6 @@
             </div>
         </div>
 
-    </div>      
+    </div>
 </div>
 

@@ -6,5 +6,5 @@
 	[quantity] int NOT NULL, 
     CONSTRAINT [PK_orderproduct] PRIMARY KEY ([order_id], [product_id]), 
     CONSTRAINT [FK_orderproduct_product] FOREIGN KEY ([product_id]) REFERENCES [product]([product_id]), 
-    CONSTRAINT [FK_orderproduct_order] FOREIGN KEY ([order_id]) REFERENCES [order]([order_id])
+    CONSTRAINT [FK_orderproduct_order] FOREIGN KEY ([order_id]) REFERENCES [Order_Company]([order_id])
 )

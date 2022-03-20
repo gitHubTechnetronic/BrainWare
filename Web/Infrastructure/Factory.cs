@@ -76,5 +76,11 @@ namespace Web.Infrastructure
         {
             return new CompanyOrdersRepository(useThisDB);
         }
+
+
+        public static IPersonOrdersRepository CreatePersonOrdersRepository(DBAccessType useThisDB)
+        {
+            return new PersonOrdersRepository(useThisDB);
+        }
     }
 }

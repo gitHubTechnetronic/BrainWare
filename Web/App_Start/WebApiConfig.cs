@@ -27,11 +27,22 @@ namespace Web
             // Web API routes
             config.MapHttpAttributeRoutes();
 
+            
+            config.Routes.MapHttpRoute(
+                name: "GetPersonOrdersApi",
+                routeTemplate: "api/{controller}/GetPersonOrders/{strorderDate}",
+                defaults: new { strorderDate = RouteParameter.Optional }
+            );
+            
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+            
+
+
         }
     }
 }

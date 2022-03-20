@@ -13,7 +13,7 @@ SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED
 SELECT  
 	o.description as Description, o.order_id 
 
-FROM [order] o 
+FROM [Order_Company] o 
 
 WHERE
 	o.company_id = @Id

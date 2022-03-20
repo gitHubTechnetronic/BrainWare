@@ -37,7 +37,7 @@ namespace DataAccessLibrary.Models
 
         public int Quantity { get; set; }
 
-        public virtual Order Order { get; set; }
+        public virtual Order_Company Order { get; set; }
 
         
     }

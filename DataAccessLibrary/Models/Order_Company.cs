@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DataAccessLibrary.Models
 {
-    public class Order
+    public class Order_Company
     {
         [Key]
         //[Column("order_id")]

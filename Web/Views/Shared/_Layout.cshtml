@@ -8,10 +8,12 @@
     @Scripts.Render("~/bundles/modernizr") 
     @Scripts.Render("~/bundles/jquery")
 
-    @Scripts.Render("~/bundles/orders")
+    @Scripts.Render("~/bundles/bootstrap")
 
+    @Scripts.Render("~/bundles/orders")
+    
     <script type = 'text/javascript' >
-        
+/*        
         var appInsights=window.appInsights||function(config)
         {
             function r(config){ t[config] = function(){ var i = arguments; t.queue.push(function(){ t[config].apply(t, i)})} }
@@ -22,7 +24,7 @@
 
         window.appInsights=appInsights;
         appInsights.trackPageView();
-    
+*/    
     </script>
 </head>
 <body>
@@ -34,7 +36,7 @@
         </footer>
     </div>
     
-    @Scripts.Render("~/bundles/bootstrap")
+
     @RenderSection("scripts", required: false)
 </body>
 </html>

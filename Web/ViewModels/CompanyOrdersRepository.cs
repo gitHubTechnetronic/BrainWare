@@ -43,15 +43,15 @@ namespace Web.ViewModels
             return _companyOrders;
         }
                 
-        public List<Order> GetCompanyOrders(int CompanyId)
+        public List<Order_Company> GetCompanyOrders(int CompanyId)
         {
-            var orderValues = new List<Order>();
+            var orderValues = new List<Order_Company>();
 
             var convertOrders = Infrastructure.Factory.CreateSQLDataAccess(_useThisDB).GetCompanyOrders(_connectionstring, CompanyId);
 
             foreach (var order in convertOrders)
             {
-                orderValues.Add(new Order()
+                orderValues.Add(new Order_Company()
                 {
                     Description = order.Description,
                     OrderId = order.order_id,

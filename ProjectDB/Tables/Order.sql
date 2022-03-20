@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[Order]
+﻿CREATE TABLE [dbo].[Order_Company]
 (
 	[order_id] INT NOT NULL IDENTITY PRIMARY KEY,
 	[description] NVARCHAR(1000) NOT NULL, 

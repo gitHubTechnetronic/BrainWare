@@ -50,10 +50,10 @@ namespace DataAccessLibrary
         }
         
 
-        public List<Order> GetCompanyOrders(String connectionString, int CompanyId)
+        public List<Order_Company> GetCompanyOrders(String connectionString, int CompanyId)
         {
 
-            List<Order> values = new List<Order>();
+            List<Order_Company> values = new List<Order_Company>();
 
             using (SqlConnection _con = new SqlConnection(connectionString))
             {
@@ -71,7 +71,7 @@ namespace DataAccessLibrary
                         {
                             var record1 = (IDataRecord)oReader;
 
-                            values.Add(new Order()
+                            values.Add(new Order_Company()
                             {
                                 Description = record1.GetString(0),
                                 order_id = record1.GetInt32(1),
@@ -122,13 +122,44 @@ namespace DataAccessLibrary
 
                             });
                         }
-                    }
-                    
+                    }                    
                 }
-            }
-            
+            }            
             return values;
         }
 
+        public List<Person> GetPersonOrdersByDate(String connectionString, DateTime orderDate)
+        {
+            List<Person> values = new List<Person>();
+
+            using (SqlConnection _con = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand("proc_PersonOrdersByDate", _con))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.Add("@OrderDate", SqlDbType.DateTime).Value = orderDate;
+
+                    _con.Open();
+
+                    using (SqlDataReader oReader = command.ExecuteReader())
+                    {
+                        while (oReader.Read())
+                        {
+                            var record1 = (IDataRecord)oReader;
+
+                            values.Add(new Person()
+                            {
+                                PersonId = record1.GetInt32(0),
+                                NameFirst = record1.GetString(1),
+                                NameLast = record1.GetString(2),
+                                Orders = new List<Order_Person>()
+                            });
+                        }
+                    }
+                }
+            }
+            return values;
+        }
     }
 }
