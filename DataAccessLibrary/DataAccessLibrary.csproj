@@ -65,10 +65,14 @@
     <Compile Include="Migrations\202203192310102_PersonOrder.designer.cs">
       <DependentUpon>202203192310102_PersonOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202203202159134_PersonOrder1.cs" />
+    <Compile Include="Migrations\202203202159134_PersonOrder1.designer.cs">
+      <DependentUpon>202203202159134_PersonOrder1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Company.cs" />
-    <Compile Include="Models\Order_Person.cs" />
+    <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Order_Company.cs" />
     <Compile Include="Models\OrderProduct.cs" />
     <Compile Include="Models\Product.cs" />
@@ -84,6 +88,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202203192310102_PersonOrder.resx">
       <DependentUpon>202203192310102_PersonOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203202159134_PersonOrder1.resx">
+      <DependentUpon>202203202159134_PersonOrder1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

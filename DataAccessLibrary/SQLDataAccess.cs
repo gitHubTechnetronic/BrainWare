@@ -153,7 +153,7 @@ namespace DataAccessLibrary
                                 PersonId = record1.GetInt32(0),
                                 NameFirst = record1.GetString(1),
                                 NameLast = record1.GetString(2),
-                                Orders = new List<Order_Person>()
+                                Orders = new List<Order>()
                             });
                         }
                     }

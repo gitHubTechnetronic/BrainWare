@@ -17,7 +17,7 @@ namespace DataAccessLibrary.Models
         [MaxLength(128)]
         public string NameLast { get; set; }
         
-        public List<Order_Person> Orders { get; set; }
+        public List<Order> Orders { get; set; }
 
     }
 }

@@ -24,5 +24,8 @@ namespace DataAccessLibrary
         public DbSet<OrderProduct> OrderProduct { get; set; }
         public DbSet<Product> Product { get; set; }
 
+        public DbSet<Person> Person { get; set; }
+        public DbSet<Order> Order { get; set; }
+
     }
 }
