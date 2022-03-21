@@ -22,8 +22,8 @@ Write a SQL query that retrieves every person and their most recent order (if on
 
 In the above results, the first is a person with at least one order, the second row is a person without an order.
 
-https://github.com/gitHubTechnetronic/BrainWare/blob/91d7ce7f4df4d75db158a52d977c4738fb049663/ProjectDB/Stored%20Procedures/proc_PersonOrders.sql#L13-L18
-I have worked on international projects so it is important to know if the DateTime in database is UTC or Local and do you want to display UTC or Local.
+https://github.com/gitHubTechnetronic/BrainWare/blob/dc668830adc745cc13197a5775318208d0d7cd0e/ProjectDB/Stored%20Procedures/proc_PersonOrders.sql#L13-L18
+I have worked on international projects so it is important to know if the DateTime in database is UTC or Local Time and do you want to display UTC or Local Time.
 
 ### Exercise 2: High Availability Upgrades
 
@@ -34,7 +34,7 @@ How would you reduce or eliminate application downtime during code and database 
 
 Calculate and print to the console the number of days between 1/1/2017 and the current date.   Then print to the console the current date formatted to look something like 12/1/2017 6:30:15 pm.  Feel free to use any public libraries as you see fit.
 
-https://github.com/gitHubTechnetronic/BrainWare/blob/e1676ef71b8e8e316dfc99aa38a5d63afe4941c9/Web/Scripts/App/ConsoleLogDate.js#L5-L20
+https://github.com/gitHubTechnetronic/BrainWare/blob/dc668830adc745cc13197a5775318208d0d7cd0e/Web/Scripts/App/ConsoleLogDate.js#L5-L21
 
 ### Exercise 4: C#
 
@@ -42,25 +42,23 @@ Write a data access method that takes a date as a parameter, calls a stored proc
 
 Make any assumptions that you feel are needed.  Please include a short description of those assumptions.
 
-https://github.com/gitHubTechnetronic/BrainWare/blob/91d7ce7f4df4d75db158a52d977c4738fb049663/DataAccessLibrary/DapperDataAccess.cs#L73-L84
+https://github.com/gitHubTechnetronic/BrainWare/blob/dc668830adc745cc13197a5775318208d0d7cd0e/DataAccessLibrary/DapperDataAccess.cs#L65-L75
 
-Using Dapper ORM we call the Stored Procedure
+Using Dapper ORM we call the Stored Procedure ignoring UTC or Local Time differences (This is handled on UI). 
 
-https://github.com/gitHubTechnetronic/BrainWare/blob/7a5cf3b700bef13193c23ac5c55bc9ca3e2b621d/ProjectDB/Stored%20Procedures/proc_PersonOrdersByDate.sql#L6-L22
+https://github.com/gitHubTechnetronic/BrainWare/blob/dc668830adc745cc13197a5775318208d0d7cd0e/ProjectDB/Stored%20Procedures/proc_PersonOrdersByDate.sql#L6-L21
 
-The results go back to the Repository
+The results go back to the Repository.
 
 https://github.com/gitHubTechnetronic/BrainWare/blob/7a5cf3b700bef13193c23ac5c55bc9ca3e2b621d/Web/ViewModels/PersonOrdersRepository.cs#L19-L37
 
-After it is converted to the ViewModel it returns to the OrderService
+After it is converted to the ViewModel it returns to the OrderService.
 
 https://github.com/gitHubTechnetronic/BrainWare/blob/f5945ab97817ee288bf4956547bf64e6bfc1d03f/Web/Infrastructure/OrderService.cs#L48-L53
 
-And then back to the API Controller
+And then back to the API Controller.
 
-https://github.com/gitHubTechnetronic/BrainWare/blob/f5945ab97817ee288bf4956547bf64e6bfc1d03f/Web/Controllers/API/OrderController.cs#L51-L59
-
-
+https://github.com/gitHubTechnetronic/BrainWare/blob/dc668830adc745cc13197a5775318208d0d7cd0e/Web/Controllers/API/OrderController.cs#L51-L58
 
 ### Exercise 5:
 
