@@ -16,7 +16,6 @@ select * from Person
 where PersonID in (
 	SELECT o.PersonId
 	FROM [Order] o 
-
 	WHERE
 		o.OrderDateTime >= @OrderDate and o.OrderDateTime < @max
 )

@@ -10,7 +10,7 @@ BEGIN
 SET NOCOUNT ON
 SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED
  
-select P.PersonId, P.NameFirst, P.NameLast, OP.OrderId, FORMAT(OP.OrderDateTime, 'dd/MM/yyyy hh:mm tt', 'en-US')
+select P.PersonId, P.NameFirst, P.NameLast, OP.OrderId, FORMAT(OP.OrderDateTime, 'MM/dd/yyyy hh:mm tt', 'en-US')
 from Person P
 OUTER APPLY (SELECT TOP 1 *
 	FROM   [Order]

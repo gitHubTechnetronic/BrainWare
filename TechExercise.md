@@ -23,6 +23,7 @@ Write a SQL query that retrieves every person and their most recent order (if on
 In the above results, the first is a person with at least one order, the second row is a person without an order.
 
 https://github.com/gitHubTechnetronic/BrainWare/blob/91d7ce7f4df4d75db158a52d977c4738fb049663/ProjectDB/Stored%20Procedures/proc_PersonOrders.sql#L13-L18
+I have worked on international projects so it is important to know if the DateTime in database is UTC or Local and do you want to display UTC or Local.
 
 ### Exercise 2: High Availability Upgrades
 
@@ -47,7 +48,7 @@ Using Dapper ORM we call the Stored Procedure
 
 https://github.com/gitHubTechnetronic/BrainWare/blob/7a5cf3b700bef13193c23ac5c55bc9ca3e2b621d/ProjectDB/Stored%20Procedures/proc_PersonOrdersByDate.sql#L6-L22
 
-The results goes back to the Repository
+The results go back to the Repository
 
 https://github.com/gitHubTechnetronic/BrainWare/blob/7a5cf3b700bef13193c23ac5c55bc9ca3e2b621d/Web/ViewModels/PersonOrdersRepository.cs#L19-L37
 

@@ -54,7 +54,7 @@ namespace Web.Controllers
 
             DateTime orderDate = DateTime.Parse(strorderDate);
                       
-            return JsonConvert.SerializeObject(_orderService.GetPersonOrdersByDate(Factory.CreatePersonOrdersRepository(Factory.DBAccessType.SQL), orderDate));
+            return JsonConvert.SerializeObject(_orderService.GetPersonOrdersByDate(Factory.CreatePersonOrdersRepository(Factory.DBAccessType.Dapper), orderDate));
         }
 
     }

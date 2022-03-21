@@ -16,7 +16,6 @@ namespace DataAccessLibrary
 
         public Company GetCompany(String connectionString, int CompanyId)
         {
-
             Company values = new Company();
                         
             using (SqlConnection _con = new SqlConnection(connectionString))
@@ -26,28 +25,22 @@ namespace DataAccessLibrary
             }
               
             return values;
-
-        }
-        
+        }        
 
         public List<Order_Company> GetCompanyOrders(String connectionString, int CompanyId)
         {
-
             List<Order_Company> values = new List<Order_Company>();
 
             using (SqlConnection _con = new SqlConnection(connectionString))
             {
                 values = _con.Query<Order_Company>($"proc_CompanyOrders { CompanyId }").ToList(); 
 
-            }
-            
+            }            
             return values;
         }
-
                 
         public List<OrderProduct> GetOrderProducts(String connectionString, int CompanyId)
         {
-
             List<OrderProduct> values = new List<OrderProduct>();
 
             using (SqlConnection _con = new SqlConnection(connectionString))
@@ -66,22 +59,19 @@ namespace DataAccessLibrary
                 });
                 
             }
-
             return values;
         }
 
         public List<Person> GetPersonOrdersByDate(String connectionString, DateTime orderDate)
         {
-
             List<Person> values = new List<Person>();
 
             using (SqlConnection _con = new SqlConnection(connectionString))
             {
-                values = _con.Query<Person>($"proc_PersonOrdersByDate '{ orderDate }'").ToList();
+                values = _con.Query<Person>($"proc_PersonOrdersByDate '{ orderDate.ToShortDateString() }'").ToList();
             }
 
             return values;
         }
-
     }
 }

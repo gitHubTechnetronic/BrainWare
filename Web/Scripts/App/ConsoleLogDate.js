@@ -13,10 +13,11 @@ $(document).ready(function () {
     var dateOptions = {year: 'numeric', month: 'numeric', day: 'numeric'};    
     var timeOptions = {hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true};
 
-    function formatter(options, value, locales = 'en-US') {          
+    function dtformatter(options, value, locales = 'en-US') {          
         return new Intl.DateTimeFormat(locales, options).format(value); 
     }
 
-    console.log(formatter(dateOptions, today) + " " + formatter(timeOptions, today)); 
+    console.log("Current Date and Time");
+    console.log(dtformatter(dateOptions, today) + " " + dtformatter(timeOptions, today)); 
 
 });

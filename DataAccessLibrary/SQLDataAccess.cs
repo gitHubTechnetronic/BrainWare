@@ -138,7 +138,7 @@ namespace DataAccessLibrary
                 {
                     command.CommandType = CommandType.StoredProcedure;
 
-                    command.Parameters.Add("@OrderDate", SqlDbType.DateTime).Value = orderDate;
+                    command.Parameters.Add("@OrderDate", SqlDbType.DateTime).Value = orderDate.ToShortDateString();
 
                     _con.Open();
 
