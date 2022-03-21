@@ -43,9 +43,21 @@ Make any assumptions that you feel are needed.  Please include a short descripti
 
 https://github.com/gitHubTechnetronic/BrainWare/blob/91d7ce7f4df4d75db158a52d977c4738fb049663/DataAccessLibrary/DapperDataAccess.cs#L73-L84
 
+Using Dapper ORM we call the Stored Procedure
+
 https://github.com/gitHubTechnetronic/BrainWare/blob/7a5cf3b700bef13193c23ac5c55bc9ca3e2b621d/ProjectDB/Stored%20Procedures/proc_PersonOrdersByDate.sql#L6-L22
 
+The results goes back to the Repository
+
 https://github.com/gitHubTechnetronic/BrainWare/blob/7a5cf3b700bef13193c23ac5c55bc9ca3e2b621d/Web/ViewModels/PersonOrdersRepository.cs#L19-L37
+
+After it is converted to the ViewModel it returns to the OrderService
+
+https://github.com/gitHubTechnetronic/BrainWare/blob/f5945ab97817ee288bf4956547bf64e6bfc1d03f/Web/Infrastructure/OrderService.cs#L48-L53
+
+And then back to the API Controller
+
+https://github.com/gitHubTechnetronic/BrainWare/blob/f5945ab97817ee288bf4956547bf64e6bfc1d03f/Web/Controllers/API/OrderController.cs#L51-L59
 
 
 

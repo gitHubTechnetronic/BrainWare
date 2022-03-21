@@ -53,8 +53,7 @@ namespace Web.Controllers
         {
 
             DateTime orderDate = DateTime.Parse(strorderDate);
-            
-            //Consider upgrading to System.Text.Json when upgrading .net framework            
+                      
             return JsonConvert.SerializeObject(_orderService.GetPersonOrdersByDate(Factory.CreatePersonOrdersRepository(Factory.DBAccessType.SQL), orderDate));
         }
 
