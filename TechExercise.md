@@ -29,6 +29,16 @@ I have worked on international projects so it is important to know if the DateTi
 
 How would you reduce or eliminate application downtime during code and database upgrades?  Assume a setup as described in Exercise 1 above.    Please make sure to include what tools you would use and how you would utilize them.
 
+I have experience with several deployment methods, worked with many different tools and created tools for companies that had trouble with deployments.
+
+Which tools to use has to do with the cost and the budgetary constraints of the project (How much you want to spend on the tools). At a previous contract, an exorbitant amount was spent on Octopus Deploy (Consultants, training and full time employees).
+
+Deployment problems often start at the beginning…so Unit testing, Code Review, Using Versioning, E2E testing, asking how to deploy during development, UAT environment with transitional settings for layer separation, and having hotfix procedures in place, can help mitigate some of these problems.
+
+Analyze if you have Deployment Rings. Develop microservices and implement CI/CD. Use tools like (Action, Pipelines and/or Octopus Deploy). Use blue/green (A/B) deployment with load balancing.
+
+I have worked on projects where my designs have been valuable, so without a consulting fee this is as far as I can go with free details.
+
 
 ### Exercise 3: Javascript
 
@@ -63,3 +73,13 @@ https://github.com/gitHubTechnetronic/BrainWare/blob/dc668830adc745cc13197a57753
 ### Exercise 5:
 
 If you were to start a website project today using .net.  What are the tools/technologies you would use (e.g. front-end UI, data access, etc...).  Please also describe why you've selected each and what you would use each for.
+
+This all depends on the type of website project, industry and users.
+
+VS and/or VSCode, .net 6, Blazor PWA, Blazor MVC and API, Git
+
+Azure functions, Azure Monitor
+
+SQL Server, Azure SQL, Azure Blob Storage
+
+I have worked on projects where my designs have been valuable so without a consulting fee this is as far as I can go with free details.
