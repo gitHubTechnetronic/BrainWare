@@ -43,6 +43,12 @@ Make any assumptions that you feel are needed.  Please include a short descripti
 
 https://github.com/gitHubTechnetronic/BrainWare/blob/91d7ce7f4df4d75db158a52d977c4738fb049663/DataAccessLibrary/DapperDataAccess.cs#L73-L84
 
+https://github.com/gitHubTechnetronic/BrainWare/blob/7a5cf3b700bef13193c23ac5c55bc9ca3e2b621d/ProjectDB/Stored%20Procedures/proc_PersonOrdersByDate.sql#L6-L22
+
+https://github.com/gitHubTechnetronic/BrainWare/blob/7a5cf3b700bef13193c23ac5c55bc9ca3e2b621d/Web/ViewModels/PersonOrdersRepository.cs#L19-L37
+
+
+
 ### Exercise 5:
 
 If you were to start a website project today using .net.  What are the tools/technologies you would use (e.g. front-end UI, data access, etc...).  Please also describe why you've selected each and what you would use each for.

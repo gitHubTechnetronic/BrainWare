@@ -44,31 +44,13 @@ namespace Web.Infrastructure
         {
             orderValues.ForEach(x => x.OrderTotal = (x.OrderProducts.Aggregate(0m, (c, d) => c += d.Price * d.Quantity)));
         }
-
         
-        public List<Person> GetPersonOrdersByDate(IPersonOrdersRepository CompanyOrders, DateTime orderDate)
+        public List<Person> GetPersonOrdersByDate(IPersonOrdersRepository personOrders, DateTime orderDate)
         {
-
-            List<Person> _companyOrders = CompanyOrders.GetPersonOrdersByDate(orderDate);
-
-            /*
-            // Get the orders                        
-            var orderValues = CompanyOrders.GetCompanyOrders(CompanyId);
-
-            //Get the order products      
-            var orderProductValues = CompanyOrders.GetOrderProducts(CompanyId);
-
-            PopulateProducts(orderValues, orderProductValues);
-
-            TotalOrders(orderValues);
-
-            _companyOrders.Orders = orderValues;
-            */
-
-            return _companyOrders;
-
-        }
-        
+            List<Person> _personOrders = personOrders.GetPersonOrdersByDate(orderDate);
+            
+            return _personOrders;
+        }        
 
     }
 }

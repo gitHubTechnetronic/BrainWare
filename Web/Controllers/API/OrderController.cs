@@ -6,7 +6,7 @@ namespace Web.Controllers
     using Infrastructure;
     using Newtonsoft.Json;
     using System;
-
+    
     [DemoAuthorize]
     public class OrderController : ApiController
     {
@@ -51,21 +51,8 @@ namespace Web.Controllers
         [HttpGet] 
         public string GetPersonOrders(string strorderDate)
         {
-            //need to add login and jwt
-            /*
-            System.Web.Http.Controllers.HttpActionContext actionContext
-            try
-            {
-                var someCode = (from h in actionContext.Request.Headers where h.Key == "Authorization" select h.Value.First()).FirstOrDefault();
-                return someCode == "demo Token";
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-            */
 
-            DateTime orderDate = DateTime.Parse(strorderDate);  // "01-01-2013 09:01 AM");
+            DateTime orderDate = DateTime.Parse(strorderDate);
             
             //Consider upgrading to System.Text.Json when upgrading .net framework            
             return JsonConvert.SerializeObject(_orderService.GetPersonOrdersByDate(Factory.CreatePersonOrdersRepository(Factory.DBAccessType.SQL), orderDate));
