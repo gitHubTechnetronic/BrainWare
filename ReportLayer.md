@@ -15,12 +15,19 @@ I have worked with ISO Technical Codes and Specifications on other projects, so 
 
 https://github.com/gitHubTechnetronic/BrainWare/blob/clinton-smith/Web/App_Start/WebApiConfig.cs
 And for testing it uses
+
 public static IOrderService CreateOrderService(ReportType rt = ReportType.PDF)
+
         {
+
             return new OrderService(CreateReportsService(rt));
+
         }
+
 In code test file
+
 https://github.com/gitHubTechnetronic/BrainWare/blob/clinton-smith/Tests/Controllers/HomeControllerTest.cs
+
 FYI: I would refactor test to Mock httpcontext
 
 ### Reports Directory
