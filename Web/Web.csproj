@@ -155,11 +155,16 @@
     <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
     </Reference>
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataAccessLibrary\DataAccessLibrary.csproj">
       <Project>{ffd18079-3571-4ab2-a9fd-7f9af854a28c}</Project>
       <Name>DataAccessLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReportLayer\ReportLayer.csproj">
+      <Project>{19f48ee9-a6a3-49f5-9887-104c1ad718d4}</Project>
+      <Name>ReportLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -399,7 +404,9 @@
   <ItemGroup>
     <None Include="Project_Readme.html" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Reports\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

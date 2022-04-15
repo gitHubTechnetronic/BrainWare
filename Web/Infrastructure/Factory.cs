@@ -5,6 +5,7 @@ using System.Web.Http.Dependencies;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using ReportsOrder;
 
 namespace Web.Infrastructure
 {
@@ -17,6 +18,13 @@ namespace Web.Infrastructure
             SQL,
             EF,
             Dapper
+        }
+        
+        public enum ReportType
+        {
+            PDF,
+            TXT,
+            Word       
         }
 
         private IServiceProvider _serviceProvider;
@@ -49,10 +57,27 @@ namespace Web.Infrastructure
         {            
         }
 
+        public static IReports CreateReportsService(ReportType rt)
+        {
+            switch (rt)
+            {
+                case ReportType.PDF:
+                    return new R_iTextSharp();
 
+                case ReportType.TXT:
+                    return new R_Text();
+                    
+                case ReportType.Word:
+                    return new R_Text();
+
+                default:
+                    return new R_iTextSharp();
+            }
+        }
+        
         public static IOrderService CreateOrderService()
         {
-            return new OrderService();
+            return new OrderService(CreateReportsService(ReportType.PDF));  // 
         }
 
         public static ISQLDataAccess CreateSQLDataAccess(DBAccessType useThisDB)

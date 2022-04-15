@@ -8,6 +8,8 @@ namespace Web.ViewModels
         public Company Company { get; set; }
 
         public List<Order_Company> Orders { get; set; }
-           
+
+        public string ReportFile { get; set; }
+
     }
 }

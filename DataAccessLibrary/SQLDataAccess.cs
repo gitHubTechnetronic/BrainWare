@@ -122,9 +122,9 @@ namespace DataAccessLibrary
 
                             });
                         }
-                    }                    
+                    }
                 }
-            }            
+            }
             return values;
         }
 

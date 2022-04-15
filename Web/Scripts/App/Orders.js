@@ -36,7 +36,8 @@ $(document).ready(function () {
                 
                 if (json_data.Company.isinDatabase) {
                     $('#companyname').append(json_data.Company.CompanyName);
-
+                    //_companyOrders
+                    $('#OrderReport').append("<a href='" + json_data.ReportFile + "' target='_blank'>Company Order Report File" + "</a>");
                 }
                 else {
                     $('#companyOrders').hide();
