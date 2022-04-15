@@ -8,7 +8,7 @@ namespace ReportsOrder
     public class R_Text : IReports
     {
                 
-        public string CreateDoc(List<string> reportStings, string reportdir = "Reports")
+        public string CreateDoc(List<string> reportStings, string reportdir = "Reports", string testreportfullpath = "")
         {
 
             System.IO.FileStream fs = null; 
@@ -16,8 +16,10 @@ namespace ReportsOrder
             Guid a = Guid.NewGuid();
 
             try
-            {                
-                fs = new FileStream(AppDomain.CurrentDomain.BaseDirectory + reportdir + "\\" + a.ToString() + ".txt", FileMode.Create);
+            {
+                string basedirectory = string.IsNullOrWhiteSpace(testreportfullpath) ? AppDomain.CurrentDomain.BaseDirectory ?? testreportfullpath : testreportfullpath;
+
+                fs = new FileStream(basedirectory + reportdir + "\\" + a.ToString() + ".txt", FileMode.Create);
                 
                 byte[] newline = Encoding.ASCII.GetBytes(Environment.NewLine);
                 

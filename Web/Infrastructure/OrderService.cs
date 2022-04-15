@@ -26,12 +26,12 @@ namespace Web.Infrastructure
 
             }
         }
-        
+
         public CompanyOrders GetCompanyOrders(ICompanyOrdersRepository CompanyOrders, int CompanyId)
         {
-            
+
             CompanyOrders _companyOrders = CompanyOrders.GetCompany(CompanyId);
-            
+
             // Get the orders                        
             var orderValues = CompanyOrders.GetCompanyOrders(CompanyId);
 
@@ -41,7 +41,7 @@ namespace Web.Infrastructure
             PopulateProducts(orderValues, orderProductValues);
 
             TotalOrders(orderValues);
-                        
+
             _companyOrders.Orders = orderValues;
 
             List<string> ReportStrings = new List<string>();
@@ -62,7 +62,14 @@ namespace Web.Infrastructure
                 ReportStrings.Add("");
             }
 
-            _companyOrders.ReportFile = HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority) + "//" + _reports.CreateDoc(ReportStrings);
+            if (HttpContext.Current != null)
+            { 
+                _companyOrders.ReportFile = HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority) + "//" + _reports.CreateDoc(ReportStrings);
+            }
+            else
+            {
+                _companyOrders.ReportFile = "Test Report Directory "; // +_reports.CreateDoc(ReportStrings);
+            }
 
             return _companyOrders;
             

@@ -75,9 +75,9 @@ namespace Web.Infrastructure
             }
         }
         
-        public static IOrderService CreateOrderService()
+        public static IOrderService CreateOrderService(ReportType rt = ReportType.PDF)
         {
-            return new OrderService(CreateReportsService(ReportType.PDF));  // 
+            return new OrderService(CreateReportsService(rt));
         }
 
         public static ISQLDataAccess CreateSQLDataAccess(DBAccessType useThisDB)

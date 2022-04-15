@@ -18,7 +18,7 @@ namespace Web
             services.AddScoped<OrderController>();
 
             // for report layer use one of three services  R_iTextSharp  R_Word  R_Text
-            services.AddSingleton<IReports, R_Word>();  
+            services.AddSingleton<IReports, R_iTextSharp>();  
 
             services.AddSingleton<IOrderService, OrderService>();
                   

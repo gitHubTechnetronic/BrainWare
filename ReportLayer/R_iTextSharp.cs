@@ -8,7 +8,7 @@ namespace ReportsOrder
 {
     public class R_iTextSharp : IReports
     {                
-        public string CreateDoc(List<string> reportStings, string reportdir = "Reports")
+        public string CreateDoc(List<string> reportStings, string reportdir = "Reports", string testreportfullpath = "")
         {
             Document pdfDoc = null;
             PdfWriter writer2 = null;
@@ -20,7 +20,9 @@ namespace ReportsOrder
             {                
                 pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
 
-                fs = new FileStream(AppDomain.CurrentDomain.BaseDirectory + reportdir + "\\" + a.ToString() + ".pdf", FileMode.Create);
+                string basedirectory = string.IsNullOrWhiteSpace(testreportfullpath) ? AppDomain.CurrentDomain.BaseDirectory ?? testreportfullpath : testreportfullpath;
+
+                fs = new FileStream(basedirectory + reportdir + "\\" + a.ToString() + ".pdf", FileMode.Create);
                 writer2 = PdfWriter.GetInstance(pdfDoc, fs);
                 
                 pdfDoc.Open();
@@ -40,6 +42,13 @@ namespace ReportsOrder
                 {
                     ColumnText.ShowTextAligned(cb, Element.ALIGN_LEFT, new Phrase(linetext, cf), 50, yrow, 0);
                     yrow = yrow  - linespacing;
+                    if (yrow < 60)
+                    {
+                        writer2.DirectContent.Add(cb);
+                        pdfDoc.NewPage();
+                        cb = new PdfContentByte(writer2);
+                        yrow = 780;
+                    }
                 }
                 
                 writer2.DirectContent.Add(cb);

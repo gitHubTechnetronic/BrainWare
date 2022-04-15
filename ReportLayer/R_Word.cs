@@ -8,14 +8,16 @@ namespace ReportsOrder
 {
     public class R_Word : IReports
     {                
-        public string CreateDoc(List<string> reportStings, string reportdir = "Reports")
+        public string CreateDoc(List<string> reportStings, string reportdir = "Reports", string testreportfullpath = "")
         {            
             Guid a = Guid.NewGuid();
 
             try
             {
 
-                using (WordprocessingDocument wordDocument = WordprocessingDocument.Create(AppDomain.CurrentDomain.BaseDirectory + reportdir + "\\" + a.ToString() + ".docx", WordprocessingDocumentType.Document))
+                string basedirectory = string.IsNullOrWhiteSpace(testreportfullpath) ? AppDomain.CurrentDomain.BaseDirectory ?? testreportfullpath : testreportfullpath;
+
+                using (WordprocessingDocument wordDocument = WordprocessingDocument.Create(basedirectory + reportdir + "\\" + a.ToString() + ".docx", WordprocessingDocumentType.Document))
                 {
                     MainDocumentPart mainPart = wordDocument.AddMainDocumentPart();
                     

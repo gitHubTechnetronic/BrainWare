@@ -1,0 +1,21 @@
+Company ID: 1
+Company Name: BrainWare Company
+
+     Our first order. (Total: 39.50)
+          Pipe fitting (10 @ 1.23/ea)
+          Quarter turn (3 @ 1.00/ea)
+          5" straight (22 @ 1.10/ea)
+
+     Our Second order. (Total: 44.00)
+          Pipe fitting (10 @ 1.23/ea)
+          Quarter turn (3 @ 1.00/ea)
+          10" straight (13 @ 2.00/ea)
+          2" stright (3 @ 0.90/ea)
+
+     Our third order. (Total: 44.25)
+          Pipe fitting (10 @ 1.23/ea)
+          10" straight (7 @ 2.00/ea)
+          Quarter turn (13 @ 0.75/ea)
+          5" straight (5 @ 1.10/ea)
+          2" stright (3 @ 0.90/ea)
+

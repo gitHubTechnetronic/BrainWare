@@ -107,6 +107,10 @@
       <Project>{ffd18079-3571-4ab2-a9fd-7f9af854a28c}</Project>
       <Name>DataAccessLibrary</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ReportLayer\ReportLayer.csproj">
+      <Project>{19f48ee9-a6a3-49f5-9887-104c1ad718d4}</Project>
+      <Name>ReportLayer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Web\Web.csproj">
       <Project>{F188788A-1ECA-4614-B085-C6F57D2990AA}</Project>
       <Name>Web</Name>
