@@ -14,6 +14,7 @@ I have worked with ISO Technical Codes and Specifications on other projects, so 
 ### DI Code Changes for Switching
 
 https://github.com/gitHubTechnetronic/BrainWare/blob/clinton-smith/Web/App_Start/WebApiConfig.cs
+
 And for testing it uses
 
 public static IOrderService CreateOrderService(ReportType rt = ReportType.PDF)
@@ -33,5 +34,9 @@ FYI: I would refactor test to Mock httpcontext
 ### Reports Directory
 
 Directory “Web/Reports”
+
 Three example files (pdf,txt,docx) are already there.
+
 This is where the Report gets generated each time the website loads for example.
+
+https://github.com/gitHubTechnetronic/BrainWare/tree/clinton-smith/Web/Reports
