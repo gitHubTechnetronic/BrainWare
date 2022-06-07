@@ -6,12 +6,55 @@ using System.Configuration;
 using Web.ViewModels;
 using ReportsOrder;
 using System.Collections.Generic;
+using System.Web.SessionState;
+using System.Web;
+using System.IO;
+using System.Reflection;
 
 namespace Tests.Controllers
 {
     [TestClass]
     public class HomeControllerTest
     {
+        // example of mocking HttpContext for additional testing
+        /*
+        [TestInitialize]
+        public void TestSetup()
+        {
+            // We need to setup the Current HTTP Context as follows:            
+
+            // Step 1: Setup the HTTP Request
+            var httpRequest = new HttpRequest("", "http://localhost/", "");
+
+            // Step 2: Setup the HTTP Response
+            var httpResponce = new HttpResponse(new StringWriter());
+
+            // Step 3: Setup the Http Context
+            var httpContext = new HttpContext(httpRequest, httpResponce);
+            var sessionContainer =
+                new HttpSessionStateContainer("id",
+                                               new SessionStateItemCollection(),
+                                               new HttpStaticObjectsCollection(),
+                                               10,
+                                               true,
+                                               HttpCookieMode.AutoDetect,
+                                               SessionStateMode.InProc,
+                                               false);
+            httpContext.Items["AspSession"] =
+                typeof(HttpSessionState)
+                .GetConstructor(
+                                    BindingFlags.NonPublic | BindingFlags.Instance,
+                                    null,
+                                    CallingConventions.Standard,
+                                    new[] { typeof(HttpSessionStateContainer) },
+                                    null)
+                .Invoke(new object[] { sessionContainer });
+
+            // Step 4: Assign the Context
+            HttpContext.Current = httpContext;
+        }
+        */
+
         [TestMethod]
         public void Index()
         {
@@ -78,6 +121,23 @@ namespace Tests.Controllers
         [TestMethod]
         public void TestDapper()
         {
+
+            // another example of mocking HttpContext for additional testing
+            /*
+            var httpRequest = new HttpRequest("", "http://example.com/", "");
+            var stringWriter = new StringWriter();
+            var httpResponse = new HttpResponse(stringWriter);
+            var httpContext = new HttpContext(httpRequest, httpResponse);
+            
+            var sessionContainer = new HttpSessionStateContainer("id", new SessionStateItemCollection(),
+                                                    new HttpStaticObjectsCollection(), 10, true,
+                                                    HttpCookieMode.AutoDetect,
+                                                    SessionStateMode.InProc, false);
+
+            SessionStateUtility.AddHttpSessionStateToContext(httpContext, sessionContainer);
+
+            HttpContext.Current = httpContext;  
+            */
 
             IOrderService data = Factory.CreateOrderService(Web.Infrastructure.Factory.ReportType.PDF);
 
